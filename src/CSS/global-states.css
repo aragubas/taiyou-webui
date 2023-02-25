@@ -1,0 +1,6 @@
+.disabled {
+  background-color: var(--background-control-disabled);
+  color: var(--font-color-disabled);
+  pointer-events: none;
+  nav-index: -1;
+}
