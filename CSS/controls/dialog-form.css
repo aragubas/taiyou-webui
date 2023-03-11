@@ -1,6 +1,6 @@
 .dialog-form {
   display: flex;
-  width: 50vh;
+  width: 25rem;
   flex-direction: column;
   padding: 1rem;
   align-items: stretch;
@@ -11,7 +11,8 @@
   border-top-right-radius: 0px;
 }
 
-.dialog-form.disabled {
+.dialog-form.disabled,
+form.disabled {
   user-select: none;
   pointer-events: none;
   opacity: 0.5;

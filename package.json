@@ -1,6 +1,6 @@
 {
   "name": "taiyou-webui",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Vue3 Component Library made for TaiyouCS WebApps",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
