@@ -8,12 +8,18 @@ const props = defineProps({
     default: false,
     required: false,
   },
+  centered: {
+    type: Boolean,
+    default: false,
+    required: false
+  }
 });
 
 let hide = ref(false);
 let closingAllowed = false;
 let mouseInsideContent = false;
 const forceFocusAnimation = ref(false);
+const backgroundRef = ref<InstanceType<typeof HTMLDivElement | null>>(null);
 
 function doClose(forceClose: boolean = false) {
   if (props.forceFocus && !forceClose) {
@@ -50,14 +56,9 @@ function keyUp(event: KeyboardEvent) {
 }
 
 onMounted(() => {
-  document.addEventListener("keyup", keyUp);
   setTimeout(() => {
     closingAllowed = true;
   }, 0.4 * 1000);
-});
-
-onUnmounted(() => {
-  document.removeEventListener("keyup", keyUp);
 });
 
 function requestClose(forceClose: boolean = false) {
@@ -68,11 +69,11 @@ defineExpose({ requestClose });
 </script>
 
 <template>
-  <div class="overlay main" @click="closeDialog" :class="[hide ? 'background-hide' : '']">
+  <div class="overlay main" @click="closeDialog" :class="[hide ? 'background-hide' : '', props.centered ? 'centered' : '']" ref="backgroundRef">
     <div
       @pointerenter="mouseInsideContent = true"
       @pointerleave="mouseInsideContent = false"
-      :class="[hide ? 'foreground-hide' : '', forceFocusAnimation ? 'forcefocus-animation' : '']"
+      :class="[hide ? 'foreground-hide' : '', forceFocusAnimation ? 'forcefocus-animation' : '', props.centered ? 'centered' : '']"
       class="foreground"
     >
       <slot></slot>
@@ -135,5 +136,35 @@ div.main {
   transform: scale(102%) translateY(1%);
   transition-duration: 0.15s;
   box-shadow: var(--shadow-floating-attention);
+}
+
+/* Centered Overrides */
+@keyframes foregroundCenteredShow {
+  from {
+    transform: scale(80%);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(100%);
+    opacity: 1;
+  }
+}
+
+.foreground-hide.centered {
+  transform: scale(80%);
+  opacity: 0;
+}
+
+.foreground.centered {
+  animation: foregroundCenteredShow 0.2s var(--animation-presentation);
+  transition: all 0.2s var(--animation-presentation);
+
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+div.main.centered {
+  align-items: center;
 }
 </style>

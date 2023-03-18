@@ -2,7 +2,7 @@
   display: block;
   text-decoration: none;
   color: var(--button-color-normal);
-
+  font-size: 1rem;
   border: 1px solid var(--border-slight-control);
   background: var(--background-control-normal);
   border-radius: 4px;

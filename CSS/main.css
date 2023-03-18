@@ -125,3 +125,20 @@ span.placeholder.big {
   width: 84px;
   height: 84px;
 }
+
+/* Fix inconsistency bethween <button> and <a> buttons */
+button {
+  font-size: 1rem;
+}
+
+input {
+  border: 1px solid var(--border-slight-control);
+  font-size: 1rem;
+  padding: 0.2rem;
+  border-radius: 4px;
+}
+
+input:focus-visible {
+  border: 1px solid var(--border-slight-control-active);
+  outline: solid 1px var(--border-slight-control-active);
+}
