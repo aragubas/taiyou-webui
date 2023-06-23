@@ -109,6 +109,7 @@ div.main {
   justify-content: center;
   align-items: flex-start;
   background-color: var(--background-overlay);
+  will-change: transform;
 }
 
 .foreground {

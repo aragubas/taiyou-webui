@@ -1,6 +1,5 @@
 .button {
   display: block;
-  text-decoration: none;
   color: var(--button-color-normal);
   font-size: 1rem;
   border: 1px solid var(--border-slight-control);
@@ -9,6 +8,7 @@
   padding: 0.1rem 0.25rem;
   text-align: center;
   user-select: none;
+  -webkit-user-select: none;
   cursor: pointer;
 }
 
