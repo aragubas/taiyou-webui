@@ -19,7 +19,7 @@ let hide = ref(false);
 let closingAllowed = false;
 let mouseInsideContent = false;
 const forceFocusAnimation = ref(false);
-const backgroundRef = ref<InstanceType<typeof HTMLDivElement | null>>(null);
+const backgroundRef = ref<InstanceType<typeof HTMLDivElement> | null>(null);
 
 function doClose(forceClose: boolean = false) {
   if (props.forceFocus && !forceClose) {
