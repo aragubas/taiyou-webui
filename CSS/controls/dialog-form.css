@@ -11,16 +11,22 @@
   border-top-right-radius: 0px;
 }
 
+/* Fixes weird spacing on top of dialog forms */
+.dialog-form h1 {
+  margin-top: -0.6rem;
+}
+
 .dialog-form.disabled,
 form.disabled {
   user-select: none;
+  -webkit-user-select: none;
   pointer-events: none;
   opacity: 0.5;
 }
 
 .input-grid {
   display: grid;
-  align-items: center;
   grid-template-columns: auto 1fr;
-  gap: 0.5rem;
+  align-items: center;
+  gap: 0.25rem 0.2rem;
 }

@@ -24,6 +24,11 @@
   background: var(--background-control-pressed);
 }
 
+/* TODO: Fix outlines */
+.button:focus {
+  outline-width: 0px;
+}
+
 .button-like {
   background: var(--background-control-normal);
   color: var(--button-color-normal);
