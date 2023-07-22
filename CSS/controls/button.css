@@ -1,6 +1,6 @@
 .button {
   display: block;
-  color: var(--button-color-normal);
+  color: var(--control-color-normal);
   font-size: 1rem;
   border: 1px solid var(--border-slight-control);
   background: var(--background-control-normal);
@@ -14,12 +14,12 @@
 }
 
 .button:hover {
-  color: var(--button-color-hover);
+  color: var(--control-color-hover);
   background: var(--background-control-hover);
 }
 
 .button:active {
-  color: var(--button-color-pressed);
+  color: var(--control-color-pressed);
   border: 1px solid var(--border-slight-control-active);
   background: var(--background-control-pressed);
 }
@@ -51,4 +51,11 @@
   background: var(--background-control-normal);
   color: var(--button-color-normal);
   border: 1px solid var(--border-slight-control);
+}
+
+.button[disabled] {
+  background-color: var(--background-control-disabled);
+  color: var(--font-color-disabled);
+  pointer-events: none;
+  nav-index: -1;
 }
