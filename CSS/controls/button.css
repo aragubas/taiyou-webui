@@ -34,6 +34,7 @@
   color: var(--button-color-normal);
   border: 1px solid var(--border-slight-control);
   cursor: pointer;
+  border-radius: 4px;
 }
 
 .button-like:hover {
