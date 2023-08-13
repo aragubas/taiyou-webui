@@ -11,8 +11,8 @@ const props = defineProps({
   centered: {
     type: Boolean,
     default: false,
-    required: false
-  }
+    required: false,
+  },
 });
 
 let hide = ref(false);
@@ -47,14 +47,6 @@ function closeDialog() {
   doClose();
 }
 
-function keyUp(event: KeyboardEvent) {
-  if (event.code == "Escape" && closingAllowed === true) {
-    if (closingAllowed) {
-      closeDialog();
-    }
-  }
-}
-
 onMounted(() => {
   setTimeout(() => {
     closingAllowed = true;
@@ -69,11 +61,20 @@ defineExpose({ requestClose });
 </script>
 
 <template>
-  <div class="overlay main" @click="closeDialog" :class="[hide ? 'background-hide' : '', props.centered ? 'centered' : '']" ref="backgroundRef">
+  <div
+    class="overlay main"
+    @click="closeDialog"
+    :class="[hide ? 'background-hide' : '', props.centered ? 'centered' : '']"
+    ref="backgroundRef"
+  >
     <div
       @pointerenter="mouseInsideContent = true"
       @pointerleave="mouseInsideContent = false"
-      :class="[hide ? 'foreground-hide' : '', forceFocusAnimation ? 'forcefocus-animation' : '', props.centered ? 'centered' : '']"
+      :class="[
+        hide ? 'foreground-hide' : '',
+        forceFocusAnimation ? 'forcefocus-animation' : '',
+        props.centered ? 'centered' : '',
+      ]"
       class="foreground"
     >
       <slot></slot>
